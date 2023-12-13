@@ -34,7 +34,9 @@ The performance of my model turned out to have a RMSE on training data as 254796
 ## Final Model
 From the Baselin Model, I added two more column from the dataset to make additional features. I added the MONTH column to perform one hot encoding because I suspected that there is certain month that is prone to having severe outage than other. I also added ANOMALY.LEVEL column to perform binarizer on threshold 0. I added this column because I suspected that having a temperature of the ocean warmer or colder may effect the cause of the outage and therefore the severity. 
 <br>
+<br>
 In addition to this feature, I decided to perform Polynomial Feature on OUTAGE.DURATION(hr) instead of bypassing as is. I used Grid Search to find the ideal hyperparameter from the degree 1 - 25 for the Polynomial Feature and it turned out to be degree 1 as the ideal.
+<br>
 <br>
 By making the final model with this transfomation, I got the RMSE on training set to be 286201.2088533489 and the RMSE on test set to be 200765.0179357123. The model perfomed better on the test set, which is a good indication that the final model performed better than the baseline model. 
 
