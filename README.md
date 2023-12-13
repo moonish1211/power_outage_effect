@@ -29,8 +29,13 @@ Since there were some missing value in the CUSTOMERS.AFFECTED column, I decided 
 
 The POSTAL.CODE is a nominal data, so I performed a One Hot Encoding to this column. My OUTAGE.DURATION(hr) is a quantitative data, so I decide to leave this as is for my baseline model. 
 
-The performance of my model turned out to have a RMSE on training data as 254796.81565928235 and the RMSE of test data as 331371.2375319377. Although this RMSE depends on the train test split I do to the original dataframe, but we can see that there this model is overfitting to the DGP. This model was good in a way that it was simple for using minimum number of column to fit this model, but this the fact that this model overfitts shows that there needs to be an improvement to be done. 
+The performance of my model turned out to have a RMSE on training data as 254796.81565928235 and the RMSE of test data as 331371.2375319377. Although this RMSE depends on the train test split I do to the original dataframe, we can see that this model is overfitting to the DGP. This model was good in a way that it was simple for using minimum number of column to fit this model, but this the fact that this model overfitts shows that there needs to be an improvement to be done. 
 
 ## Final Model
+From the Baselin Model, I added two more column from the dataset to make additional features. I added the MONTH column to perform one hot encoding because I suspected that there is certain month that is prone to having severe outage than other. I also added ANOMALY.LEVEL column to perform binarizer on threshold 0. I added this column because I suspected that having a temperature of the ocean warmer or colder may effect the cause of the outage and therefore the severity. 
+<br>
+In addition to this feature, I decided to perform Polynomial Feature on OUTAGE.DURATION(hr) instead of bypassing as is. I used Grid Search to find the ideal hyperparameter from the degree 1 - 25 for the Polynomial Feature and it turned out to be degree 1 as the ideal.
+<br>
+By making the final model with this transfomation, I got the RMSE on training set to be 286201.2088533489 and the RMSE on test set to be 200765.0179357123. The model perfomed better on the test set, which is a good indication that the final model performed better than the baseline model. 
 
 ## Fairness Analysis
