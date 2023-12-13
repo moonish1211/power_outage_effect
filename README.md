@@ -24,6 +24,12 @@ This means that as more customer effected, the faster the company deals with the
 We chose the metric RMSE to evaluate this model because I argue that more distance between the prediction and the actual value should be punished with more error and RMSE clearly reflect this concerns. By squaring the distance between the predicted and actual value, the more the prediction is off equavalate to more error and that is what we are more concerned with than using other metrics like coefficient of determination which measure the quality of a linear fit.
 
 ## Baseline Model
+The model that were used is the LinearRegression Model with two features, POSTAL.CODE and OUTAGE.DURATION(hr).
+Since there were some missing value in the CUSTOMERS.AFFECTED column, I decided to delete these rows instead of imputation. This is because I didn't want to alter the variability of the score and make the prediction bias. I ended up deleting 500 rows from the dataframe. 
+
+The POSTAL.CODE is a nominal data, so I performed a One Hot Encoding to this column. My OUTAGE.DURATION(hr) is a quantitative data, so I decide to leave this as is for my baseline model. 
+
+The performance of my model turned out to have a RMSE on training data as 254796.81565928235 and the RMSE of test data as 331371.2375319377. Although this RMSE depends on the train test split I do to the original dataframe, but we can see that there this model is overfitting to the DGP. This model was good in a way that it was simple for using minimum number of column to fit this model, but this the fact that this model overfitts shows that there needs to be an improvement to be done. 
 
 ## Final Model
 
