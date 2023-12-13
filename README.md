@@ -49,10 +49,14 @@ The group X is month of [3, 4, 5, 6, 7, 8] to represent season spring and summer
 <br>
 The evaluation metric that I chose was RMSE and the test statistic used to run the permutation test are absolute difference in RMSE between these two groups. 
 <br>
+<br>
 My **null hypothesis** is that the model is fair and the prediction for spring/summer and prediction for fall/winter are roughly the same and any difference is due to random chances alone. 
+<br>
 <br>
 My **alternative hypothesis** is that the model is unfair and the absolute difference in RMSE between that two groups are significantly different from each other. 
 <br>
+<br>
 The significance level we set will be 5% and the resulting p-value produced was 0.088. 
+<br>
 <br>
 We will conclude that we failed to reject the null and the difference in RMSE between prediction of different month were not as significant to claim other factor to be involved in the test statistics. The difference in RMSE are most likely due to chances alone. 
