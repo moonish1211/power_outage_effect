@@ -41,3 +41,18 @@ In addition to this feature, I decided to perform Polynomial Feature on OUTAGE.D
 By making the final model with this transfomation, I got the RMSE on training set to be 286201.2088533489 and the RMSE on test set to be 200765.0179357123. The model perfomed better on the test set, which is a good indication that the final model performed better than the baseline model. 
 
 ## Fairness Analysis
+I decide to run a permutation test on weather the prediction of spring-summer month versus the prediction of fall-winter month roughly the same or not. 
+<br>
+<br>
+The group X is month of [3, 4, 5, 6, 7, 8] to represent season spring and summer and group Y is the month of [1, 2, 9, 10, 11, 12] to represent season fall and winter.
+<br>
+<br>
+The evaluation metric that I chose was RMSE and the test statistic used to run the permutation test are absolute difference in RMSE between these two groups. 
+<br>
+My **null hypothesis** is that the model is fair and the prediction for spring/summer and prediction for fall/winter are roughly the same and any difference is due to random chances alone. 
+<br>
+My **alternative hypothesis** is that the model is unfair and the absolute difference in RMSE between that two groups are significantly different from each other. 
+<br>
+The significance level we set will be 5% and the resulting p-value produced was 0.088. 
+<br>
+We will conclude that we failed to reject the null and the difference in RMSE between prediction of different month were not as significant to claim other factor to be involved in the test statistics. The difference in RMSE are most likely due to chances alone. 
