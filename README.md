@@ -1,4 +1,4 @@
-# Power outage Data
+# Power Outage Data
 <br>
 Project created by Jill Luna Nomura
 
